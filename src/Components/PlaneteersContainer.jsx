@@ -1,12 +1,28 @@
 import React from 'react';
 import Planeteer from './Planeteer'
 
-const PlaneteersContainer = () => {
+const PlaneteersContainer = ({planeteers, searchTerm}) => {
+
+  // console.log(planeteers)
+
+  const renderPlaneteers = () => {
+    // console.log('term from container: ', searchTerm);
+    return (
+      planeteers.filter(planeteer => {
+        return(
+          planeteer.name.toLowerCase().includes(searchTerm.toLowerCase())
+          ||
+          planeteer.bio.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      })
+      .map(planeteer => <Planeteer key={planeteer.id} planeteer={planeteer} />)
+    )
+  }
 
   return (
     <ul className="cards">
       {
-        "Render Planeteers here"
+        renderPlaneteers()
       }
     </ul>
   )
