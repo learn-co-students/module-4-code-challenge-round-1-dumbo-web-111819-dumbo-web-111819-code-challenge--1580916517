@@ -26,8 +26,7 @@ class Planeteer extends React.Component {
           <img onClick={this.handleOnClick}src={pictureUrl} alt={name} className="card__image" />
           <div className="card__content">
             <div className="card__title">{name}</div>
-            <p className="card__text">{this.state.flipped ? 'bio' : 'quote' }</p>
-            {/* <p className="card__text">${`this.state.flipped ? {bio} : {quote}` }</p> */}
+            <p className="card__text">{this.state.flipped ? bio: quote }</p>
             <div className="card__detail">
               <p>{twitter}</p>
               <p>Age: {age}</p>
