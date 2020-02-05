@@ -8,7 +8,7 @@ const PlaneteersContainer = (props) => {
     <ul className="cards">
       {
         props.handleFilter().map(planeteer => {
-return <Planeteer key={planeteer.id} planeteer={planeteer}/>
+return <Planeteer key={planeteer.id} planeteer={planeteer} deletePlaneteer={this.props.deletePlaneteer}/>
         })
       }
     </ul>

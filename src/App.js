@@ -54,6 +54,12 @@ class App extends React.Component {
       this.setState({allPlaneteers: [...this.state.allPlaneteers, randomPlaneteer]})
     }
 
+    // deletePlaneteer = (planeteer) => {
+    //   fetch(`http://localhost:4000/planeteers/${planeteer.id}`, {
+    // method: ‘DELETE’
+    //   })
+    // }
+
   render(){
     console.log(this.state.allPlaneteers);
     return (
@@ -61,7 +67,7 @@ class App extends React.Component {
         <Header />
         <SearchBar searchTerm={this.state.searchTerm} handleOnChange={this.handleOnChange}/>
         <RandomButton addRandom={this.addRandom}/>
-        <PlaneteersContainer allPlaneteers={this.state.allPlaneteers} handleFilter={this.handleFilter}/>
+        <PlaneteersContainer allPlaneteers={this.state.allPlaneteers} handleFilter={this.handleFilter} deletePlaneteer={this.deletePlaneteer}/>
       </div>
     );
   }

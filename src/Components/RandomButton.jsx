@@ -46,7 +46,7 @@ class RandomButton extends React.Component {
     const randomPlaneteer = arrayOfPlaneteers[Math.floor(Math.random() * arrayOfPlaneteers.length)]
     this.props.addRandom(randomPlaneteer);
   }
-
+// TRIED TO GET THE NO KEY ERROR REMOVED BUT COULDN'T FIGURE IT OUT
 
   render() {
     return (

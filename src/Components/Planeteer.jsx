@@ -7,10 +7,10 @@ class Planeteer extends React.Component {
   }
 
   showBio = () => {
-    this.setState({showBio: true})
+    this.setState({showBio: !this.state.showBio})
     
   }
-  //PUT A BANG OPERATOR SOMWHERE
+  //NEED TO PUT A BANG OPERATOR SOMWHERE
 
   findAge = () => {
     var d = new Date();
@@ -31,7 +31,7 @@ class Planeteer extends React.Component {
               <p>Age: {this.findAge()}</p>
               <p>{this.props.planeteer.fromUSA ? "USA-based" : "Working Overseas"}</p>
             </div>
-            {/* DELIVERABLE 5 */}
+            <button onClick={this.props.deletePlaneteer(this.props.planeteer)}>DELETE</button>
           </div>
         </div>
       </li>
