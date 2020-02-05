@@ -10,7 +10,8 @@ class App extends React.Component {
 
   state = {
     planeteers: [],
-    searchTerm: ''
+    searchTerm: '',
+    sortByAge: false
   }
 
   componentDidMount(){
@@ -20,10 +21,22 @@ class App extends React.Component {
   }
 
   handleRandomButtonClick = (randomPlaneteer) => {
-    console.log('he;')
-    this.setState({planeteers: [randomPlaneteer, ...this.state.planeteers]})
-  }
-
+    console.log(randomPlaneteer)
+      let configObj = {
+        method: 'POST',
+        headers: {
+          'content-type':'application/json',
+          'accept': 'application/json'
+        },
+        body: JSON.stringify(randomPlaneteer)
+      }
+      fetch(`http://localhost:4000/planeteers`, configObj)
+        .then(resp => resp.json)
+        .then(json => {
+          this.setState({planeteers: [randomPlaneteer, ...this.state.planeteers]})
+        })
+    }
+  
   onChangeSearch = (e) => {
     this.setState({searchTerm: e.target.value})
   }
@@ -34,14 +47,47 @@ class App extends React.Component {
     return filteredPlaneteers
   }
 
+  deleteTheFriggenPlaneteerCuzYeaaahBoiii = (id) => {
+    
+    fetch(`http://localhost:4000/planeteers/${id}`, {method: 'DELETE'})
+    .then(resp => resp.json())
+    .then( 
+      this.setState(prevState => { 
+        let filteredPlaneteers = prevState.planeteers.filter(planeteer => planeteer.id !== id)
+        return {planeteers: filteredPlaneteers }})
+    )
+  }
+
+  sortByAgeChangeState = (e) => {
+    this.setState({sortByAge: e.target.checked})
+  }
+
+  sortPlaneteerByAge = (planeteerArray) => {
+    if(this.state.sortByAge){
+      let newPlaneteerArray = [...planeteerArray]
+      return newPlaneteerArray.sort((planeteer1,planeteer2) => planeteer2.born -planeteer1.born)
+    } else{
+      return planeteerArray
+    }
+  }
+
 
   render(){
     return (
       <div>
         <Header />
-        <SearchBar searchTerm = {this.state.searchTerm} onChangeSearch= {this.onChangeSearch} />
-        <RandomButton handleRandomButtonClick = {this.handleRandomButtonClick}/>
-        <PlaneteersContainer planeteers = {this.dynamicSearch()}/>
+        <SearchBar 
+          searchTerm = {this.state.searchTerm}
+          onChangeSearch= {this.onChangeSearch} 
+          sortByAgeChangeState = {this.sortByAgeChangeState}
+        />
+        <RandomButton 
+          handleRandomButtonClick = {this.handleRandomButtonClick}
+        />
+        <PlaneteersContainer 
+          planeteers = {this.sortPlaneteerByAge(this.dynamicSearch())}
+          deleteTheFriggenPlaneteerCuzYeaaahBoiii ={this.deleteTheFriggenPlaneteerCuzYeaaahBoiii}
+        />
       </div>
     );
   }
