@@ -8,13 +8,94 @@ import SearchBar from './Components/SearchBar'
 
 class App extends React.Component {
 
+  state={
+    planeteers: [],
+    searchTerm: "",
+    sortByAge: false
+  }
+
+  componentDidMount(){
+    fetch('http://localhost:4000/planeteers')
+    .then(r => r.json())
+    .then(planeteers => this.setState({
+      planeteers
+    }))
+  }
+
+  setSearchTerm = (e) => {
+    this.setState({
+      searchTerm: e.target.value
+    })
+  }
+
+  removePlaneteer = (id) => {
+    // console.log('remove', id)
+    this.setState(prevState => {
+      let copiedPlaneteers = prevState.planeteers
+      let idx = prevState.planeteers.findIndex(planeteer => planeteer.id === id)
+      copiedPlaneteers.splice(idx, 1)
+      return (
+        {planeteers: copiedPlaneteers}
+      )
+
+      // deletion does not persist in server yet
+
+    })
+  }
+
+  toggleSortByAge = () => {
+    this.setState(prevState => ({
+      sortByAge: !prevState.sortByAge
+    }))
+  }
+
+  handleBioClick = () => {
+    this.setState(prevState => ({
+      bio: !prevState.bio
+    }))
+  }
+
+  addRandomPlaneteer = (randomPlaneteer) => {
+    fetch('http://localhost:4000/planeteers', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(randomPlaneteer)
+    })
+    .then(r => r.json())
+    .then(newPlaneteer => {
+      this.setState(prevState => {
+
+        // adding to the top just to make clear it's working
+
+        let newPlaneteers = [newPlaneteer, ...prevState.planeteers]
+        return(
+          {
+            planeteers: newPlaneteers
+          }
+        )
+      })
+    })
+  }
+
   render(){
     return (
       <div>
         <Header />
-        <SearchBar />
-        <RandomButton/>
-        <PlaneteersContainer />
+        <SearchBar 
+          searchValue={this.state.searchTerm} 
+          setSearchTerm={this.setSearchTerm} 
+          handleBioClick={this.handleBioClick}
+          toggleSortByAge={this.toggleSortByAge}
+        />
+        <RandomButton addRandomPlaneteer={this.addRandomPlaneteer} />
+        <PlaneteersContainer
+          sortByAge={this.state.sortByAge} 
+          planeteers={this.state.planeteers} 
+          searchTerm={this.state.searchTerm} 
+          removePlaneteer={this.removePlaneteer}
+        />
       </div>
     );
   }
