@@ -15,6 +15,10 @@ class Planeteer extends React.Component {
       })
   }
 
+  handleDelete = (e) =>{
+    //  console.log(e.target)
+    this.props.removePlaneteer(this.props.planeteer)
+  }
 
 
   render() {
@@ -28,6 +32,7 @@ class Planeteer extends React.Component {
     return (
       <li className="cards__item">
         <div className="card" onClick={this.handleClick}>
+          <div className="card"> <button onClick={this.handleDelete}>X</button></div>
           <img src={pictureUrl} alt={name} className="card__image" />
           <div className="card__content">
             <div className="card__title">{name}</div>
