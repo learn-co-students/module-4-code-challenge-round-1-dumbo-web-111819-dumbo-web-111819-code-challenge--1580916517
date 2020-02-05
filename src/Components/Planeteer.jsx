@@ -30,7 +30,9 @@ class Planeteer extends React.Component {
               <p>{twitter}</p>
               <p>Age: {n-born}</p>
               <p>{fromUSA?  "USA-based": "Working Overseas" }</p>
+              
             </div>
+            <button>Delete</button>
             {/* DELIVERABLE 5 */}
           </div>
         </div>
