@@ -1,20 +1,38 @@
 import React from 'react';
 
 class Planeteer extends React.Component {
+  state={
+    bio:true
+  }
+
+  handleToggle=(e) => {
+    this.setState(prevState=>({
+      bio:!prevState.bio
+
+    }))
+  }
 
   render() {
+    let d = new Date();
+    let n = d.getFullYear();
+    // console.log(n)
+    const {name, fromUSA, born, bio, quote, pictureUrl, twitter}=this.props.planet
+    // console.log(this.props.planet)
+    // console.log(born)
     return (
       <li className="cards__item">
-        <div className="card">
-          <img src={"RENDER IMAGE"} alt={"RENDER PERSON NAME"} className="card__image" />
+        <div onClick={this.handleToggle} className="card">
+          <img src={pictureUrl} alt={name} className="card__image" />
           <div className="card__content">
-            <div className="card__title">{"RENDER NAME"}</div>
-            <p className="card__text">{"CONDITIONALLY RENDER BIO OR QUOTE"}</p>
+            <div className="card__title">{name}</div>
+            <p className="card__text">{this.state.bio ? bio :quote/*"CONDITIONALLY RENDER BIO OR QUOTE"*/}</p>
             <div className="card__detail">
-              <p>{"RENDER TWITTER HANDLE"}</p>
-              <p>Age: {"RENDER THE AGE OF THE PERSON"}</p>
-              <p>{"CONDITIONALLY RENDER WHETHER THE PERSON IS USA-BASED OR WORKING OVERSEAS"}</p>
+              <p>{twitter}</p>
+              <p>Age: {n-born}</p>
+              <p>{fromUSA?  "USA-based": "Working Overseas" }</p>
+              
             </div>
+            <button>Delete</button>
             {/* DELIVERABLE 5 */}
           </div>
         </div>

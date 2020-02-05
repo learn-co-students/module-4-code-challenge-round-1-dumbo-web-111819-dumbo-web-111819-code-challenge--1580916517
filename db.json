@@ -1,5 +1,5 @@
 {
-  "planeteers":[
+  "planeteers": [
     {
       "id": 1,
       "name": "Xiuhtezcatl Martinez",
@@ -71,7 +71,7 @@
       "twitter": " "
     },
     {
-      "id":8,
+      "id": 8,
       "name": "Alexandria Villaseñor",
       "fromUSA": true,
       "born": 2005,
@@ -79,6 +79,9 @@
       "quote": "Two years ago I began to research the connection between climate change and wildfires and learned that wildfires are burning longer and hotter because of climate change. I also saw Greta’s COP24 speech, and I thought that world leaders would take action to reduce greenhouse gas emissions. When they didn't, I was upset, and it was on the last day of COP24, December 14, that I began my strike at the U.N.",
       "pictureUrl": "https://www.abc.net.au/news/image/11556402-3x2-940x627.jpg",
       "twitter": "@AlexandriaV2005"
+    },
+    {
+      "id": 9
     }
   ]
 }
