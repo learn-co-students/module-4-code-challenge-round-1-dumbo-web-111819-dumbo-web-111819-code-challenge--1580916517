@@ -27,6 +27,21 @@ class App extends React.Component {
     })
   }
 
+  removePlaneteer = (id) => {
+    console.log('remove', id)
+    this.setState(prevState => {
+      let copiedPlaneteers = prevState.planeteers
+      let idx = prevState.planeteers.findIndex(planeteer => planeteer.id === id)
+      copiedPlaneteers.splice(idx, 1)
+      return (
+        {planeteers: copiedPlaneteers}
+      )
+
+      // deletion does not persist in server yet
+
+    })
+  }
+
   addRandomPlaneteer = (randomPlaneteer) => {
     console.log('before: ', randomPlaneteer);
     fetch('http://localhost:4000/planeteers', {
@@ -53,9 +68,13 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <SearchBar setSearchTerm={this.setSearchTerm} />
+        <SearchBar searchValue={this.state.searchTerm} setSearchTerm={this.setSearchTerm} />
         <RandomButton addRandomPlaneteer={this.addRandomPlaneteer} />
-        <PlaneteersContainer planeteers={this.state.planeteers} searchTerm={this.state.searchTerm} />
+        <PlaneteersContainer 
+          planeteers={this.state.planeteers} 
+          searchTerm={this.state.searchTerm} 
+          removePlaneteer={this.removePlaneteer}
+        />
       </div>
     );
   }

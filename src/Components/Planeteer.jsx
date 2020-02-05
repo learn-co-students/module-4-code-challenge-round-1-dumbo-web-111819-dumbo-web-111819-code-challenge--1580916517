@@ -5,20 +5,25 @@ class Planeteer extends React.Component {
   state={
     bio: true
   }
-
-  handleClick = () => {
+  
+  handleBioClick = () => {
     this.setState(prevState => ({
       bio: !prevState.bio
     }))
   }
-
+  
+  handleRemoveClick = () => {
+    // console.log('remove...', this.props.planeteer.id );
+    this.props.removePlaneteer(this.props.planeteer.id)
+  }
+  
   render() {
-    // console.log(this.props.planeteer);
     let {name, twitter, pictureUrl, born, bio, quote, fromUSA} = this.props.planeteer
+    // console.log(this.props.planeteer);
     return (
       <li className="cards__item">
         <div className="card">
-          <img onClick={this.handleClick} src={pictureUrl} alt={name} className="card__image" />
+          <img onClick={this.handleBioClick} src={pictureUrl} alt={name} className="card__image" />
           <div className="card__content">
             <div className="card__title">{name}</div>
             <p className="card__text">{this.state.bio ? bio : quote}</p>
@@ -28,6 +33,9 @@ class Planeteer extends React.Component {
               <p>{fromUSA ? "USA-based" : "Working Overseas"}</p>
             </div>
             {/* DELIVERABLE 5 */}
+            <button onClick={this.handleRemoveClick} id="delete-planeteer">
+              Remove This Planeteer
+            </button>
           </div>
         </div>
       </li>

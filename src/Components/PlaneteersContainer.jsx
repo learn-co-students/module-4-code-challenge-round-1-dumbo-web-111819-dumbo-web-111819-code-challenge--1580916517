@@ -1,7 +1,7 @@
 import React from 'react';
 import Planeteer from './Planeteer'
 
-const PlaneteersContainer = ({planeteers, searchTerm}) => {
+const PlaneteersContainer = ({planeteers, searchTerm, removePlaneteer}) => {
 
   // console.log(planeteers)
 
@@ -15,7 +15,13 @@ const PlaneteersContainer = ({planeteers, searchTerm}) => {
           planeteer.bio.toLowerCase().includes(searchTerm.toLowerCase())
         )
       })
-      .map(planeteer => <Planeteer key={planeteer.id} planeteer={planeteer} />)
+      .map(planeteer => 
+        <Planeteer 
+          key={planeteer.id} 
+          planeteer={planeteer} 
+          removePlaneteer={removePlaneteer}
+        />
+      )
     )
   }
 
