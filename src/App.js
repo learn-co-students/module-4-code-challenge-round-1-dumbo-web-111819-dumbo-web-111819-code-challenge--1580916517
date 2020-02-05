@@ -8,10 +8,13 @@ import SearchBar from './Components/SearchBar'
 
 class App extends React.Component {
 
+  // ignore the sort. Was working on it but will have to revamp some code and dont want 
+  // to break things, so I will work on it afterwards. 
+
     state = { 
       planeteers: [],
-      searchField: '',
-      sort: false
+      searchField: ''
+      // sort: false
     }
 
   componentDidMount() { 
@@ -49,12 +52,12 @@ class App extends React.Component {
         planeteers: [...newPlaneteerList]
       })
     }
-    handleSort = (checked) => {
-      // console.log(checked)
-      this.setState({
-        sort: checked
-      })
-    }
+    // handleSort = (checked) => {
+    //   // console.log(checked)
+    //   this.setState({
+    //     sort: checked
+    //   })
+    // }
     
     
   render(){
@@ -65,7 +68,7 @@ class App extends React.Component {
         <SearchBar handleSearch={this.handleSearch} handleSort={this.handleSort}/>
         <RandomButton addPlaneteer={this.addPlaneteer} />
         <PlaneteersContainer removePlaneteer={this.removePlaneteer}
-        checked={this.state.sort}
+        // checked={this.state.sort}
         planeteers={this.searchedPlaneteers()}/>
       </div>
     );
