@@ -11,11 +11,15 @@ class Planeteer extends React.Component {
       toggle: !this.state.toggle
     })
   }
-
+  removePlaneteer = () => {
+    // console.log(this.props.planeteer)
+    this.props.removePlaneteer(this.props.planeteer)
+  }
 
 
   render() {
     const {fromUSA,name,born,bio,quote,twitter,pictureUrl} = this.props.planeteer
+    const date = new Date()
     return (
       <li className="cards__item">
         <div className="card">
@@ -25,10 +29,10 @@ class Planeteer extends React.Component {
             <p className="card__text" onClick={this.handleToggle} >{this.state.toggle? quote : bio} </p>
             <div className="card__detail">
               <p>{twitter}</p>
-              <p>Age: {2020 - born}</p>
+              <p>Age: {date.getFullYear() - born}</p>
                 <p>{ fromUSA ? "USA-based" : "Working Overseas" }</p>
             </div>
-            {/* DELIVERABLE 5 */}
+            <button onClick={this.removePlaneteer} >Remove Planeteer</button>
           </div>
         </div>
       </li>

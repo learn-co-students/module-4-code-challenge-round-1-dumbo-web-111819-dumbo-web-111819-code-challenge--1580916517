@@ -10,7 +10,8 @@ class App extends React.Component {
 
     state = { 
       planeteers: [],
-      searchField: ''
+      searchField: '',
+      sort: false
     }
 
   componentDidMount() { 
@@ -34,22 +35,38 @@ class App extends React.Component {
       return filteredplaneteers
     }
     addPlaneteer = (newPlaneteer) => {
-      console.log(newPlaneteer)
+      // console.log(newPlaneteer)
       // newPlaneteer.key = newPlaneteer.id
       this.setState({
         planeteers: [...this.state.planeteers, newPlaneteer]
       })
     }
+    removePlaneteer = (planeteerObj) => {
+      // console.log(planeteerObj)
+      let newPlaneteerList = this.state.planeteers.filter(planeteer => planeteer !== planeteerObj)
+      // console.log(newPlaneteerList)
+      this.setState({
+        planeteers: [...newPlaneteerList]
+      })
+    }
+    handleSort = (checked) => {
+      // console.log(checked)
+      this.setState({
+        sort: checked
+      })
+    }
     
-
+    
   render(){
-    
+     
     return (
       <div>
         <Header />
-        <SearchBar handleSearch={this.handleSearch}/>
+        <SearchBar handleSearch={this.handleSearch} handleSort={this.handleSort}/>
         <RandomButton addPlaneteer={this.addPlaneteer} />
-        <PlaneteersContainer planeteers={this.searchedPlaneteers()}/>
+        <PlaneteersContainer removePlaneteer={this.removePlaneteer}
+        checked={this.state.sort}
+        planeteers={this.searchedPlaneteers()}/>
       </div>
     );
   }
