@@ -37,22 +37,60 @@ class App extends React.Component {
     return filteredPlaneteers
   }
 
-  getPlaneteerInfo = (planeteerObj) => {
-    // console.log(planeteerObj)
-    let newPlaneteersArr = [...this.state.planeteers, planeteerObj]
-    this.setState({
-      planeteers: newPlaneteersArr
+  getPlaneteerInfo = (planeteerObjInfo) => {
+    // console.log(planeteerObjInfo)
+    let {name, bio, quote, twitter, pictureUrl, born, fromUSA} = planeteerObjInfo
+    console.log(name, bio, quote, twitter, pictureUrl, born, fromUSA)
+    fetch(`http://localhost:4000/planeteers`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        bio, 
+        quote,
+        twitter,
+        pictureUrl,
+        born,
+        fromUSA
+      })
+    })
+    .then(resp => resp.json())
+    .then(newObj => {
+      let newArr = [...this.state.planeteers, newObj]
+      this.setState({
+        planeteers: newArr
+      })
+    })
+  }
+
+  deletePlaneteer = (objToDelete) => {
+    // console.log(objToDelete)
+    fetch(`http://localhost:4000/planeteers/${objToDelete.id}`, {
+      method: 'DELETE'
+    })
+    .then(resp => resp.json())
+    .then(emptyObj => {
+      if(emptyObj){
+        let newArray = this.state.planeteers.filter((planeteerObj) => {
+          return planeteerObj.id !== objToDelete.id
+        })
+        this.setState({
+          planeteers: newArray
+        })
+      }
     })
   }
 
   render(){
-    // console.log(this.state.searchTerm)
+    // console.log(this.state.planeteers)
     return (
       <div>
         <Header />
         <SearchBar searchValue={this.state.searchTerm} getSearchInput={this.handleSearch}/>
         <RandomButton getPlaneteerInfo={this.getPlaneteerInfo}/>
-        <PlaneteersContainer planeteers={this.searchPlaneteers()}/>
+        <PlaneteersContainer deletePlaneteer={this.deletePlaneteer} planeteers={this.searchPlaneteers()}/>
       </div>
     );
   }
