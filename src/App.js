@@ -9,7 +9,8 @@ import SearchBar from './Components/SearchBar'
 class App extends React.Component {
   state = {
     planeteers : [],
-    searchTerm: ""
+    searchTerm: "",
+    checked: false
   }
 
   componentDidMount() {
@@ -32,16 +33,24 @@ class App extends React.Component {
   //handleSearch should Filter out by name or bio
   handleSearch=()=>{
     let filteredArray = this.state.planeteers.filter(planeteer => {
-      return planeteer.name.toLowerCase().includes(this.state.searchTerm) || planeteer.bio.toLowerCase().includes(this.state.searchTerm)
+      return planeteer.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || planeteer.bio.toLowerCase().includes(this.state.searchTerm.toLowerCase())
     })
     return filteredArray
+    //the checked should be sorted here
+    //sorry couldn't finish this :(
+    // if(this.state.checked){
+    //
   }
 
   //Generate Random Planeteer send props to get planteer Obj
   //add to the array of planeteers
     getRandomPlanteer=(randomPlaneteer)=>{
       // console.log(randomPlaneteer);
-      let newArray = [...this.state.planeteers, randomPlaneteer]
+      //forgot to add Id
+      let newId = this.state.planeteers.length + 1
+      //then you spread the object and add the key
+      let newObj = {... randomPlaneteer, id: newId}
+      let newArray = [...this.state.planeteers, newObj]
       this.setState({
         planeteers: newArray
       })
@@ -58,15 +67,22 @@ class App extends React.Component {
     })
   }
 
+//change the state of the checked = Onchnage
+  handleChecked=()=>{
+    this.setState({
+      checked: !this.state.checked
+    })
+  }
 
 
   render(){
     // console.log(this.state.searchTerm);
     // console.log(this.state.planeteers);
+    // console.log(this.state.checked);
     return (
       <div>
         <Header />
-        <SearchBar searchTerm={this.state.searchTerm} handleOnChange={this.handleOnChange} />
+        <SearchBar checked={this.state.checked} handleChecked={this.handleChecked} searchTerm={this.state.searchTerm} handleOnChange={this.handleOnChange} />
         <RandomButton getRandomPlanteer={this.getRandomPlanteer}/>
         <PlaneteersContainer handleDelete={this.handleDelete} planeteers={this.handleSearch()} />
       </div>

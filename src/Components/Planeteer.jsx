@@ -27,7 +27,8 @@ class Planeteer extends React.Component {
     //will come back to age later
     // substract current year - born in Javascript
     //for now human is doing it
-    let age = 2020 - born
+    let currentYear = new Date().getFullYear()
+    let age = currentYear - born
     return (
       <li className="cards__item">
         <div  className="card">
