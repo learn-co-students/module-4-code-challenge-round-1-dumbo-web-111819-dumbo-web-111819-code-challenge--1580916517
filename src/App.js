@@ -11,7 +11,8 @@ class App extends React.Component {
   state = {
     planeteers: [],
     quotes: [],
-    searchText: ""
+    searchText: "",
+    age: false
   }
 
   componentDidMount(){
@@ -49,18 +50,57 @@ class App extends React.Component {
     this.setState({
       planeteers: newState
     })
+    let pObj = {
+      name: p.name,
+      fromUSA: p.fromUSA,
+      born: p.born,
+      bio: p.bio,
+      quote: p.quote,
+      pictureUrl: p.pictureUrl,
+      twitter: p.twitter
+    }
+    fetch("http://localhost:4000/planeteers",{
+      method: "POST",
+      headers: {
+        "Content-type":"application/json",
+        "Accept":"application/json"
+      },
+      body: JSON.stringify(
+        pObj
+      )
+    })
+  }
+
+  delete = (p) => {
+    let newState = this.state.planeteers.filter(pObj=> pObj !== p)
+    this.setState({
+      planeteers: newState
+    })
+    fetch(`http://localhost:4000/planeteers/${p.id}`, {
+      method: "DELETE"
+    })
+  }
+
+  sortByAge = () => {
+    let newState = !this.state.age
+    this.setState({
+      age: newState
+    })
   }
 
 
-
   render(){
-    let displayPs = this.state.planeteers.filter(p=> p.name.includes(this.state.searchText) || p.bio.includes(this.state.searchText))
+    let displayPs = this.state.planeteers.filter(p=> p.name.toLowerCase().includes(this.state.searchText.toLowerCase()) || p.bio.includes(this.state.searchText))
+    let sortedPs = [...displayPs]
+    if(this.state.age){
+      sortedPs.sort((a, b) => ((2020-a.born) < (2020-b.born) ? -1 : 1))
+    }
     return (
       <div>
         <Header />
-        <SearchBar searchText={this.state.searchText} search={this.search}/>
+        <SearchBar age={this.state.age} sortByAge={this.sortByAge} searchText={this.state.searchText} search={this.search}/>
         <RandomButton addP={this.addP}/>
-        <PlaneteersContainer planeteers={displayPs} quotes={this.state.quotes} toggleCard={this.toggleCard}/>
+        <PlaneteersContainer delete={this.delete} planeteers={sortedPs} quotes={this.state.quotes} toggleCard={this.toggleCard}/>
       </div>
     );
   }
