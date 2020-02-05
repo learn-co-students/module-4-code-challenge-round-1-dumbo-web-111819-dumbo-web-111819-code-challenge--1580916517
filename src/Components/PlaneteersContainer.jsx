@@ -3,7 +3,7 @@ import Planeteer from './Planeteer'
 
 const PlaneteersContainer = (props) => {
   
-  let mappedArray = props.planeteers.map(planteer => <Planeteer key={planteer.id} obj={planteer}/>)
+  let mappedArray = props.planeteers.map(planteer => <Planeteer key={planteer.id} obj={planteer} delete={props.delete}/>)
   return (
     <ul className="cards">
       {

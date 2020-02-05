@@ -1,5 +1,5 @@
 {
-  "planeteers":[
+  "planeteers": [
     {
       "id": 1,
       "name": "Xiuhtezcatl Martinez",
@@ -41,16 +41,6 @@
       "twitter": "@israhirsi"
     },
     {
-      "id": 5,
-      "name": "Lilly Platt",
-      "fromUSA": false,
-      "born": 2010,
-      "bio": "Just at 9 years old, Lilly Platt, started going on a war to end plastic pollution. When Lilly first moved to Holland her grandfather began teaching her to speak Dutch, and to help her learn numbers, they collected pieces of plastic trash and counted them. She no longer needs the practice but she’s still picking up plastic. Today, Lilly is a Youth Ambassador for the Plastic Pollution Coalition and a Child Ambassador for HOW Global and World Cleanup Day.",
-      "quote": "You don’t have to be a grown up to do something. Children are allowed to help the environment. If they don’t, they won’t have a future. They won’t have anything to go to school for.",
-      "pictureUrl": "https://160g7a3snajg2i1r662yjd5r-wpengine.netdna-ssl.com/wp-content/uploads/2019/12/lilly.gif",
-      "twitter": "@lillyspickup"
-    },
-    {
       "id": 6,
       "name": "Leah Namugerwa",
       "fromUSA": false,
@@ -71,14 +61,74 @@
       "twitter": " "
     },
     {
-      "id":8,
-      "name": "Alexandria Villaseñor",
+      "name": "Greta Thunberg",
+      "bio": "It could be argued that without Greta Thunberg, there would be no youth climate strike movement. The 16-year-old Swedish climate activist has been striking outside of the parliament building in Stockholm since last August, and is the founder of the Fridays for Future youth climate strike movement. Her impassioned speeches have left politicians speechless and millions of young people inspired around the world. “Our house is falling apart and our leaders need to start acting accordingly because at the moment they are not,” Greta demanded of Members of the European Parliament and EU officials in Strasbourg in April.",
+      "born": 2003,
+      "twitter": "@GretaThunberg",
+      "quote": "Yes, we are failing, but there is still time to turn everything around — we can still fix this. I want you to act as if the house was on fire. Because it is.",
+      "fromUSA": false,
+      "pictureUrl": "https://160g7a3snajg2i1r662yjd5r-wpengine.netdna-ssl.com/wp-content/uploads/2019/12/greta.jpg",
+      "id": 9
+    },
+    {
+      "name": "Greta Thunberg",
+      "bio": "It could be argued that without Greta Thunberg, there would be no youth climate strike movement. The 16-year-old Swedish climate activist has been striking outside of the parliament building in Stockholm since last August, and is the founder of the Fridays for Future youth climate strike movement. Her impassioned speeches have left politicians speechless and millions of young people inspired around the world. “Our house is falling apart and our leaders need to start acting accordingly because at the moment they are not,” Greta demanded of Members of the European Parliament and EU officials in Strasbourg in April.",
+      "born": 2003,
+      "twitter": "@GretaThunberg",
+      "quote": "Yes, we are failing, but there is still time to turn everything around — we can still fix this. I want you to act as if the house was on fire. Because it is.",
+      "fromUSA": false,
+      "pictureUrl": "https://160g7a3snajg2i1r662yjd5r-wpengine.netdna-ssl.com/wp-content/uploads/2019/12/greta.jpg",
+      "id": 10
+    },
+    {
+      "name": "Greta Thunberg",
+      "bio": "It could be argued that without Greta Thunberg, there would be no youth climate strike movement. The 16-year-old Swedish climate activist has been striking outside of the parliament building in Stockholm since last August, and is the founder of the Fridays for Future youth climate strike movement. Her impassioned speeches have left politicians speechless and millions of young people inspired around the world. “Our house is falling apart and our leaders need to start acting accordingly because at the moment they are not,” Greta demanded of Members of the European Parliament and EU officials in Strasbourg in April.",
+      "born": 2003,
+      "twitter": "@GretaThunberg",
+      "quote": "Yes, we are failing, but there is still time to turn everything around — we can still fix this. I want you to act as if the house was on fire. Because it is.",
+      "fromUSA": false,
+      "pictureUrl": "https://160g7a3snajg2i1r662yjd5r-wpengine.netdna-ssl.com/wp-content/uploads/2019/12/greta.jpg",
+      "id": 11
+    },
+    {
+      "name": "Haven Coleman",
+      "bio": "Sloths were the main motivator for Haven Coleman’s dive into environmental activism. At just 13, she is already a co-founder and co-executive director of the US Youth Climate Strike. Despite the backlash she has received from classmates, politicians, and even strangers, Haven remains determined to continue her activism and bring about meaningful change. It was a fifth grade lesson about deforestation was the catalyst for her commitment to ending climate change. Having participated in climate work since she was 10, Coleman’s transition to founding her own climate-focused organization was only natural.",
+      "born": 2006,
+      "twitter": "@havenruthie",
+      "quote": "I  was so mad that we were making the world so sick and hurting so many people, killing so many people. I knew that it was not about saving the sloths, it was about saving all the organisms that live on it.",
       "fromUSA": true,
-      "born": 2005,
-      "bio": "At 14 years old, Alexandria Villaseñor has already made a name for herself as a teenage environmentalist. Dedicated to climate activism, the teen is best known for her individual protests outside the U.N. on Fridays, when she skips school to sit on a park bench outside the building. Her strike began as a sign of solidarity with Greta Thunberg’s call for school strikes in Europe. Villaseñor is also involved with the U.S. Youth Climate Strike and is the founder of Earth Uprising, an organization dedicated to fighting climate change.",
-      "quote": "Two years ago I began to research the connection between climate change and wildfires and learned that wildfires are burning longer and hotter because of climate change. I also saw Greta’s COP24 speech, and I thought that world leaders would take action to reduce greenhouse gas emissions. When they didn't, I was upset, and it was on the last day of COP24, December 14, that I began my strike at the U.N.",
-      "pictureUrl": "https://www.abc.net.au/news/image/11556402-3x2-940x627.jpg",
-      "twitter": "@AlexandriaV2005"
+      "pictureUrl": "https://160g7a3snajg2i1r662yjd5r-wpengine.netdna-ssl.com/wp-content/uploads/2019/12/haven.gif",
+      "id": 12
+    },
+    {
+      "name": "Haven Coleman",
+      "bio": "Sloths were the main motivator for Haven Coleman’s dive into environmental activism. At just 13, she is already a co-founder and co-executive director of the US Youth Climate Strike. Despite the backlash she has received from classmates, politicians, and even strangers, Haven remains determined to continue her activism and bring about meaningful change. It was a fifth grade lesson about deforestation was the catalyst for her commitment to ending climate change. Having participated in climate work since she was 10, Coleman’s transition to founding her own climate-focused organization was only natural.",
+      "born": 2006,
+      "twitter": "@havenruthie",
+      "quote": "I  was so mad that we were making the world so sick and hurting so many people, killing so many people. I knew that it was not about saving the sloths, it was about saving all the organisms that live on it.",
+      "fromUSA": true,
+      "pictureUrl": "https://160g7a3snajg2i1r662yjd5r-wpengine.netdna-ssl.com/wp-content/uploads/2019/12/haven.gif",
+      "id": 13
+    },
+    {
+      "name": "Thomas Tonatiuh Lopez",
+      "bio": "Thomas Tonatiuh Lopez, 24, was arrested at Standing Rock while praying. It was traumatic but helped him find his place as a leader, in the tradition of his father who is a Sundance Chief. Both of Lopez's parents were Indigenous civil rights leaders in the 1970s, both taking part in the occupation of Alcatraz in 1969 and Wounded Knee in 1973, which called attention to dismal living conditions and civil rights abuses that Native Americans continued to endure. He himself has been an LGBTQ rights advocate. He identifies as Chicano, with roots in the Mexica people of Mexico, and Sicangu Lakota Oyate from South Dakota, though he grew up in Denver. He talked about the inclusive community he found at Standing Rock that compelled him to join the camp for three months instead of his initial one-day plan.",
+      "born": 1995,
+      "twitter": "@tomvslopez",
+      "quote": "Even though I had a lot of pain come out of the experience of the arrest, it inspired a lot of people. And those are the things sometimes you have to do as a leader. You have to take that pain for our people so that we can inspire others to stand up.",
+      "fromUSA": true,
+      "pictureUrl": "https://s.abcnews.com/images/US/abc-thomaslivingportrait-jc-170224_16x9_992.jpg",
+      "id": 14
+    },
+    {
+      "name": "Haven Coleman",
+      "bio": "Sloths were the main motivator for Haven Coleman’s dive into environmental activism. At just 13, she is already a co-founder and co-executive director of the US Youth Climate Strike. Despite the backlash she has received from classmates, politicians, and even strangers, Haven remains determined to continue her activism and bring about meaningful change. It was a fifth grade lesson about deforestation was the catalyst for her commitment to ending climate change. Having participated in climate work since she was 10, Coleman’s transition to founding her own climate-focused organization was only natural.",
+      "born": 2006,
+      "twitter": "@havenruthie",
+      "quote": "I  was so mad that we were making the world so sick and hurting so many people, killing so many people. I knew that it was not about saving the sloths, it was about saving all the organisms that live on it.",
+      "fromUSA": true,
+      "pictureUrl": "https://160g7a3snajg2i1r662yjd5r-wpengine.netdna-ssl.com/wp-content/uploads/2019/12/haven.gif",
+      "id": 15
     }
   ]
 }

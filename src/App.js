@@ -10,7 +10,8 @@ class App extends React.Component {
 
   state = {
     planeteers:[],
-    search: ""
+    search: "",
+    isClicked:false
   }
 
   componentDidMount() {
@@ -36,20 +37,65 @@ class App extends React.Component {
 
 
   addRandomHero = (planeteer) => {
-    console.log(planeteer)
-    let updatedarr = [...this.state.planeteers, planeteer]
+    let {name, bio,born,twitter,quote,fromUSA,pictureUrl} = planeteer
+    fetch("http://localhost:4000/planeteers",{
+      method:"POST",
+      headers: {
+        'Content-Type': "application/json",
+        "Accept":"application/json"
+      },
+      body: JSON.stringify({
+        name,
+        bio,
+        born,
+        twitter,
+        quote,
+        fromUSA,
+        pictureUrl
+      })
+    })
+    .then(r => r.json())
+    .then(res => {
+      let updatedarr = [...this.state.planeteers, res]
+      this.setState({
+          planeteers: updatedarr
+        })
+    })
+    
+  }
+  handleDelete = (id) => {
+    console.log(id)
+    fetch(`http://localhost:4000/planeteers/${id}`,{
+      method:"DELETE",})
+      .then(r => r.json())
+      .then(res => {
+        let updatedarr = this.state.planeteers.filter(planeteer => planeteer.id !== id)
+        console.log(updatedarr)
+        this.setState({
+          planeteers:updatedarr
+        })
+      })
+  }
+
+
+  handleSorting = (bool) => {
     this.setState({
-      planeteers: updatedarr
+      isClicked:bool
     })
   }
+
+
   render(){
-    
+    console.log(this.state.isClicked)
+    let newArray = [...this.state.planeteers]
+    let ageSortedArray = newArray.sort((a,b) => a.born-b.born)
+
     return (
       <div>
         <Header />
-        <SearchBar searchTerm={this.state.search} searchHandler ={this.searchHandler}/>
+        <SearchBar searchTerm={this.state.search} searchHandler ={this.searchHandler} sortHandler = {this.handleSorting}/>
         <RandomButton addRandomHero = {this.addRandomHero}/>
-        <PlaneteersContainer planeteers={this.arrFilter()}/>
+        <PlaneteersContainer planeteers={this.state.isClicked ? ageSortedArray : this.arrFilter()} delete={this.handleDelete}/>
       </div>
     );
   }

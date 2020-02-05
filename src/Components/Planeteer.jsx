@@ -1,4 +1,5 @@
 import React from 'react';
+// import RandomButton from './RandomButton';
 
 class Planeteer extends React.Component {
   state = {
@@ -11,10 +12,15 @@ class Planeteer extends React.Component {
 
 
   handleClick = () => {
-    console.log(this.props.obj.name)
+    
     this.setState({
       isClicked: !this.state.isClicked
     })
+    
+  }
+  handleDelete = () => {
+    this.props.delete(this.props.obj.id)
+    console.log(this.props.obj.name,"promises to be a good person")
     
   }
   render() {
@@ -31,7 +37,7 @@ class Planeteer extends React.Component {
               <p>Age: {this.getAge(born)}</p>
               <p>{fromUSA ? "USA-based" : "Working Overseas"}</p>
             </div>
-            {/* DELIVERABLE 5 */}
+            <button type = "delete" style={{color: "black"},{"backgroundCcolor": "red"}} onClick={this.handleDelete}> delete</button>
           </div>
         </div>
       </li>
