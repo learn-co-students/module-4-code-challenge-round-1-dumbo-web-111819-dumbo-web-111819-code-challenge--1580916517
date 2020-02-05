@@ -1,19 +1,50 @@
 import React from 'react';
 
 class Planeteer extends React.Component {
+  
+  state = {
+    bio: true 
+  }
+
+  toggleBio = (e) => {
+    // this.setState(prevState => {
+    //   return {state: !prevState.bio}
+    // })
+    // console.log(this.state.bio)
+    
+    this.setState({
+      bio: !this.state.bio
+    })
+    // console.log(this.state.bio)
+  }
 
   render() {
+    
+  
+    const {name, fromUSA, born, bio, quote, pictureUrl, twitter} = this.props.plantObj
+    // console.log(name,born,fromUSA)
+
+    let d = new Date();
+    let currentYear = d.getFullYear()
+    let conditionRender = fromUSA? 'USA-based': 'Workgin Overseas'
+    // console.log(bio)
+    let bioTernary = this.state.bio? bio: quote
+
     return (
       <li className="cards__item">
         <div className="card">
-          <img src={"RENDER IMAGE"} alt={"RENDER PERSON NAME"} className="card__image" />
+          <img onClick ={this.toggleBio} src={pictureUrl} alt={name} className="card__image" />
           <div className="card__content">
-            <div className="card__title">{"RENDER NAME"}</div>
-            <p className="card__text">{"CONDITIONALLY RENDER BIO OR QUOTE"}</p>
+            <div className="card__title">{name}</div>
+
+
+            <p className="card__text">{bioTernary}</p>
+
+
             <div className="card__detail">
-              <p>{"RENDER TWITTER HANDLE"}</p>
-              <p>Age: {"RENDER THE AGE OF THE PERSON"}</p>
-              <p>{"CONDITIONALLY RENDER WHETHER THE PERSON IS USA-BASED OR WORKING OVERSEAS"}</p>
+              <p>{twitter}</p>
+              <p>Age: {currentYear - born}</p>
+              <p>{conditionRender}</p>
             </div>
             {/* DELIVERABLE 5 */}
           </div>
@@ -23,5 +54,4 @@ class Planeteer extends React.Component {
   }
 
 }
-
 export default Planeteer;
