@@ -53,6 +53,7 @@ class RandomButton extends React.Component {
         <button onClick={this.handleClick} id="random-planeteer">
           Click to Add a Random Planeteer
         </button>
+        
       </div>
     );
   }
