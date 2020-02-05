@@ -10,15 +10,13 @@ class Planeteer extends React.Component {
     this.setState({showBio: true})
     
   }
-  // I NEED TO PUT A BANG OPERATOR SOMWHERE
+  //PUT A BANG OPERATOR SOMWHERE
 
   findAge = () => {
     var d = new Date();
-var n = d.getFullYear();
-  return  n - this.props.planeteer.age
+    var n = d.getFullYear();
+    return  n - this.props.planeteer.born
   }
-  // NaN 
-  // SPENT TOO MUCH TIME ON THIS
 
   render() {
     return (

@@ -32,6 +32,25 @@ class App extends React.Component {
     }
 
     addRandom = (randomPlaneteer) => {
+      fetch(`http://localhost:4000/planeteers`, {
+            method: 'POST',
+            body: JSON.stringify({
+      
+              name: randomPlaneteer.name, 
+              fromUSA: randomPlaneteer.fromUSA,
+              born: randomPlaneteer.born,
+              bio: randomPlaneteer.bio,
+              quote: randomPlaneteer.quote,
+              pictureUrl: randomPlaneteer.pictureUrl,
+              twitter: randomPlaneteer.twitter,
+              
+              
+            }),
+            headers:{
+              'Content-Type': 'application/json',
+              "Accept": "application/json"
+            }
+          })
       this.setState({allPlaneteers: [...this.state.allPlaneteers, randomPlaneteer]})
     }
 
