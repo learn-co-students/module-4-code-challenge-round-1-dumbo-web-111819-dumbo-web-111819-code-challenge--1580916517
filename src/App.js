@@ -45,13 +45,6 @@ class App extends React.Component {
       return newArr
     }
 
-    if(this.state.displayPlaneteer === true){
-      return this.state.planeteers
-    }else{
-      return newArr
-    }
-
-
   }
   
   updateDisplayPlaneteer = () => {
