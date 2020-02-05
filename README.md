@@ -23,17 +23,17 @@ This command will download any Node Package we'll need as well as fire up our Re
 
 ## Deliverables
 
-1. When our React application is mounted, it should render out the list of Planeteers on the page, using the given Planeteer component.
+<!-- 1. When our React application is mounted, it should render out the list of Planeteers on the page, using the given Planeteer component.
 
     a) In addition to showing a Planeteer's name, twitter handle, picture, the Planeteer card should also show the proper _age_ of the Planeteer. In our `db.json`, we just have the year that the Planeteer was born. To calculate the age, first figure out how to get the current year in JavaScript. Once you figure that out, you can subtract the year that the Planeteer was born in to get the proper age.
 
     b) If a Planeteer is from the USA, the card should say "USA-based". Otherwise, the card should read "Working Overseas".
 
-    c) The Planeteer component should, by default, render the bio of the Planeteer. However, when we click on an image of a Planeteer, the specific card that we clicked on should instead render the quote for that specific Planeteer in place of where the bio was. Consider how to dynamically toggle back and forth between the quote and bio for each of the cards.
+    c) The Planeteer component should, by default, render the bio of the Planeteer. However, when we click on an image of a Planeteer, the specific card that we clicked on should instead render the quote for that specific Planeteer in place of where the bio was. Consider how to dynamically toggle back and forth between the quote and bio for each of the cards. -->
 
-2. Once you have the list of Planeteers rendering, build out the SearchBar functionality. As the user types in the SearchBar component, we'll want to dynamically render the list of Planeteers whose name or bio include the letters that are being typed. If there's no text in the SearchBar component, all the Planeteers from the database should be showing on the page.
+<!-- 2. Once you have the list of Planeteers rendering, build out the SearchBar functionality. As the user types in the SearchBar component, we'll want to dynamically render the list of Planeteers whose name or bio include the letters that are being typed. If there's no text in the SearchBar component, all the Planeteers from the database should be showing on the page. -->
 
-3. After working on the SearchBar component, build out the functionality for the RandomButton component. Right now, when we press the RandomButton, a random Planeteer object who is not in the database gets logged to the console. However, the functionality that Captain Planet wants is that when we press the button, instead of logging the Planeteer the console, we want to render the Planeteer on the page. So, if Greta Thunberg gets logged to the console, we also want to see a Planeteer component for Greta Thunberg. You do not have to persist the Planeteer to the database.
+<!-- 3. After working on the SearchBar component, build out the functionality for the RandomButton component. Right now, when we press the RandomButton, a random Planeteer object who is not in the database gets logged to the console. However, the functionality that Captain Planet wants is that when we press the button, instead of logging the Planeteer the console, we want to render the Planeteer on the page. So, if Greta Thunberg gets logged to the console, we also want to see a Planeteer component for Greta Thunberg. You do not have to persist the Planeteer to the database. -->
 
 If you are finished with these three deliverables, commit your code.
 
