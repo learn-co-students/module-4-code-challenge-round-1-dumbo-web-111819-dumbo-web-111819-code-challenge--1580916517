@@ -2,18 +2,36 @@ import React from 'react';
 
 class Planeteer extends React.Component {
 
+  state = {
+    showBio: false
+  }
+
+  showBio = () => {
+    this.setState({showBio: true})
+    
+  }
+  // I NEED TO PUT A BANG OPERATOR SOMWHERE
+
+  findAge = () => {
+    var d = new Date();
+var n = d.getFullYear();
+  return  n - this.props.planeteer.age
+  }
+  // NaN 
+  // SPENT TOO MUCH TIME ON THIS
+
   render() {
     return (
       <li className="cards__item">
         <div className="card">
-          <img src={"RENDER IMAGE"} alt={"RENDER PERSON NAME"} className="card__image" />
+          <img src={this.props.planeteer.pictureUrl} alt={this.props.planeteer.name} className="card__image" onClick={this.showBio} />
           <div className="card__content">
-            <div className="card__title">{"RENDER NAME"}</div>
-            <p className="card__text">{"CONDITIONALLY RENDER BIO OR QUOTE"}</p>
+            <div className="card__title">{this.props.planeteer.name}</div>
+            <p className="card__text">{this.state.showBio ?  this.props.planeteer.bio : this.props.planeteer.quote}</p>
             <div className="card__detail">
-              <p>{"RENDER TWITTER HANDLE"}</p>
-              <p>Age: {"RENDER THE AGE OF THE PERSON"}</p>
-              <p>{"CONDITIONALLY RENDER WHETHER THE PERSON IS USA-BASED OR WORKING OVERSEAS"}</p>
+              <p>{this.props.planeteer.twitter}</p>
+              <p>Age: {this.findAge()}</p>
+              <p>{this.props.planeteer.fromUSA ? "USA-based" : "Working Overseas"}</p>
             </div>
             {/* DELIVERABLE 5 */}
           </div>
