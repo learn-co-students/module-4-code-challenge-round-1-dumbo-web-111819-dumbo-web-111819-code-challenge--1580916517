@@ -1,11 +1,15 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
+  handleChange=(e) => {
+    this.props.handleOnChange(e.target.value)
+    
+  }
 
   render() {
     return (
       <div className="search">
-       <input type="text" className="searchTerm" placeholder="Who would you like to search for?"/>
+       <input value={this.props.value} onChange={this.handleChange} type="text" className="searchTerm" placeholder="Who would you like to search for?"/>
       </div>
     );
   }
