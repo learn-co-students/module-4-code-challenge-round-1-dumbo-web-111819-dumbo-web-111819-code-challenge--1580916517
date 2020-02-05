@@ -38,9 +38,17 @@ class App extends React.Component {
     return displayedSearch
   }
   addRandomPlaneteer = (planeteer) => {
+    axios.post(URL,planeteer)
     this.setState({
       allPlaneteers: [planeteer, ...this.state.allPlaneteers]
     })
+  }
+  handleDelete = (planeteer) => {
+    let updatedPlaneteers = this.state.allPlaneteers.filter(planeteerObj =>
+     planeteerObj.name !== planeteer.name)
+     this.setState({
+       allPlaneteers: updatedPlaneteers
+     })
   }
   
   
@@ -53,7 +61,7 @@ class App extends React.Component {
         <Header />
         <SearchBar handleChange={this.handleChange} search={this.state.search} />
         <RandomButton addRandomPlaneteer={this.addRandomPlaneteer} />
-        <PlaneteersContainer  allPlaneteers={this.displaySearchPlaneteers()} />
+        <PlaneteersContainer  allPlaneteers={this.displaySearchPlaneteers()} handleDelete={this.handleDelete} />
       </div>
     );
   }
