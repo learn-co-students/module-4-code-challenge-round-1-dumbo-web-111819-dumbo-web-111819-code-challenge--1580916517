@@ -3,17 +3,14 @@
 
 // const PlaneteersContainer = (props) => {
 
-//   console.log(props.plants)
+//   const plantsMapper = () =>  
 
-//   let plantsMapper = () => {
-//     props.plants.map(plant => {
+//    props.plants.map(plant => {
 
-
-//       return <Planeteer plantObj = {plant} key ={plant.id}/>
-
+//       <Planeteer plantObj = {plant} key = {plant.id} deletePlanteer = {props.deletePlanteer}/>
 //     })
-//   }
 
+  
 //   return (
 //     <ul className="cards">
 //       {
@@ -24,26 +21,35 @@
 
 // };
 
+// Was afraid to fail because of this step, it stopped me from moving onto other deliverables. 
 // export default PlaneteersContainer;
+
+
+
+
 import React, { Component } from 'react'
 import Planeteer from './Planeteer'
 
 export class PlaneteersContainer extends Component {
 
   render() {
-
+    
     let plantsMapper = this.props.plants.map(plant => {
 
-       return <Planeteer plantObj = {plant} key = {plant.id} />
-       
+       return <Planeteer plantObj = {plant} key = {plant.id} deletePlanteer = {this.props.deletePlanteer}/>
+
     })
 
     return (
-      <div>
-          {plantsMapper}
-      </div>
+      <ul className="cards">
+      {
+        plantsMapper
+      }
+    </ul>
     )
   }
 }
-
 export default PlaneteersContainer
+
+
+
