@@ -59,6 +59,7 @@ class App extends React.Component {
     // method: ‘DELETE’
     //   })
     // }
+    
 
   render(){
     console.log(this.state.allPlaneteers);
