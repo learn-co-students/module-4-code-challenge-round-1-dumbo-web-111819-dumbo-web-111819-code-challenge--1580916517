@@ -10,7 +10,8 @@ class App extends React.Component {
 
   state={
     planeteers: [],
-    searchTerm: ""
+    searchTerm: "",
+    sortByAge: false
   }
 
   componentDidMount(){
@@ -28,7 +29,7 @@ class App extends React.Component {
   }
 
   removePlaneteer = (id) => {
-    console.log('remove', id)
+    // console.log('remove', id)
     this.setState(prevState => {
       let copiedPlaneteers = prevState.planeteers
       let idx = prevState.planeteers.findIndex(planeteer => planeteer.id === id)
@@ -42,8 +43,19 @@ class App extends React.Component {
     })
   }
 
+  toggleSortByAge = () => {
+    this.setState(prevState => ({
+      sortByAge: !prevState.sortByAge
+    }))
+  }
+
+  handleBioClick = () => {
+    this.setState(prevState => ({
+      bio: !prevState.bio
+    }))
+  }
+
   addRandomPlaneteer = (randomPlaneteer) => {
-    console.log('before: ', randomPlaneteer);
     fetch('http://localhost:4000/planeteers', {
       method: "POST",
       headers: {
@@ -54,6 +66,9 @@ class App extends React.Component {
     .then(r => r.json())
     .then(newPlaneteer => {
       this.setState(prevState => {
+
+        // adding to the top just to make clear it's working
+
         let newPlaneteers = [newPlaneteer, ...prevState.planeteers]
         return(
           {
@@ -68,9 +83,15 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <SearchBar searchValue={this.state.searchTerm} setSearchTerm={this.setSearchTerm} />
+        <SearchBar 
+          searchValue={this.state.searchTerm} 
+          setSearchTerm={this.setSearchTerm} 
+          handleBioClick={this.handleBioClick}
+          toggleSortByAge={this.toggleSortByAge}
+        />
         <RandomButton addRandomPlaneteer={this.addRandomPlaneteer} />
-        <PlaneteersContainer 
+        <PlaneteersContainer
+          sortByAge={this.state.sortByAge} 
           planeteers={this.state.planeteers} 
           searchTerm={this.state.searchTerm} 
           removePlaneteer={this.removePlaneteer}

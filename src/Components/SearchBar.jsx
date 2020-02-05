@@ -11,6 +11,11 @@ class SearchBar extends React.Component {
         type="text" className="searchTerm" 
         placeholder="Who would you like to search for?"
       />
+      <label htmlFor="age">Sort By Age:</label>
+      <input onChange={this.props.toggleSortByAge} type="checkbox" id="age" name="age"/>
+      
+      {/* next - how to handle checked or not for a checkbox? */}
+      
       </div>
     );
   }
